@@ -3,17 +3,42 @@ const inputPrice = document.getElementById('price');
 const buttonSubmit = document.getElementById('submit');
 const tbody = document.getElementsByTagName('tbody')[0]; //pegar o indice 0 da lista que o getElement retorna
 
-let list = []; 
+let list = [];
+
+const editIten = () => {
+  console.log('editeii');
+}
+
+const deleteIten = () => {
+  console.log('deletee');
+
+}
+
+const showCards = () => {
+
+  list.map(iten => {
+    console.log(iten);
+  })
+
+  // tbody.innerHTML += `
+  //   <tr class="item">
+  //     <td>${inputName.value}</td>
+  //     <td>${inputPrice.value}</td>
+  //     <td>
+  //       <button onclick="editIten()">
+  //         <i class="fa fa-pencil" aria-hidden="true"></i>
+  //       </button>
+  //       <button onclick="deleteIten()">
+  //         <i class="fa fa-trash" aria-hidden="true"></i>
+  //       </button>
+  //     </td>
+  //   </tr>
+  // `
+
+}
 
 const createItem = () => {
 
-  tbody.innerHTML += `
-    <tr class="item">
-      <td>${inputName.value}</td>
-      <td>${inputPrice.value}</td>
-      <td></td>
-    </tr>
-  `
   let newItem = {
     nome: inputName.value,
     preco: inputPrice.value,
@@ -23,6 +48,8 @@ const createItem = () => {
 
   inputName.value = '';
   inputPrice.value = '';
+
+  showCards();
 
 }
 

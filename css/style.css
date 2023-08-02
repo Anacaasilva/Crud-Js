@@ -30,7 +30,7 @@ input {
   background-color: #D9D9D9;
 }
 
-button {
+#submit {
   border: none;
   font-size: 20px;
   margin-top: 30px;
@@ -66,4 +66,28 @@ td {
 
 .item {
   border-bottom: .5px solid #ffffff70;
+}
+
+.fa-pencil {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.fa-pencil:hover {
+  color: #ffffff59;
+}
+
+.fa-trash {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.fa-trash:hover {
+  color: red;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
 }
