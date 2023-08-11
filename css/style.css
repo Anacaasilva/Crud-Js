@@ -68,6 +68,10 @@ td {
   border-bottom: .5px solid #ffffff70;
 }
 
+.item:last-child {
+  border: none;
+}
+
 .fa-pencil {
   margin-right: 5px;
   cursor: pointer;
