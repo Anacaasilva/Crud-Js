@@ -8,29 +8,21 @@ let editando = false;
 let posicao = -1; //posição do item no array quando editado 
 
 const editIten = (index) => {
-
   let itenSelecionado = list[index];
 
   inputName.value = itenSelecionado.nome; // atribuindo value do input identificando o item na lista atraves do index
   inputPrice.value = itenSelecionado.preco;
-  
+
   editando = true;
 
   buttonLabel();
 
   posicao = index;
-
 }
 
-const buttonLabel = () => {
-
-  buttonSubmit.innerHTML = `${editando? 'SALVAR': 'CADASTRAR'}`;
-
-}
-
+const buttonLabel = () => buttonSubmit.innerHTML = `${editando ? 'SALVAR' : 'CADASTRAR'}`;
 
 const salvar = () => {
-
   tbody.innerHTML = ``; //limpando a tabela antes de adicionar um novo item 
 
   let newItem = {
@@ -48,15 +40,12 @@ const salvar = () => {
   editando = false;
 
   buttonLabel();
-
 }
 
 const deleteIten = (index) => {
-
   list.splice(index, 1); // apaga 1 item a partir do index passado por parametro
   tbody.innerHTML = ``; // limpo minha tabela 
   showCards(); // renderizo os itens novamente.
-
 }
 
 const showCards = () => {
@@ -78,11 +67,15 @@ const showCards = () => {
       </tr>
     `
   })
-
 }
 
-const createItem = () => {
+const dadosLocalStorage = () => {
+  if (JSON.parse(localStorage.getItem('Dados'))) {
+    list = JSON.parse(localStorage.getItem('Dados'))
+  }
+} //dados que já estão salvos no local Storage
 
+const createItem = () => {
   tbody.innerHTML = ``; //limpando a tabela antes de adicionar um novo item 
 
   let newItem = {
@@ -92,22 +85,23 @@ const createItem = () => {
 
   list.push(newItem);  //adicionando o objeto criado à lista de objetos
 
+  const listJSON = JSON.stringify(list)
+
+  localStorage.setItem('Dados', listJSON);
+
   inputName.value = '';
   inputPrice.value = '';
 
   showCards();
-
 }
 
 const validate = () => {
-
   if (inputName.value == '') alert('Campo "Nome" deve ser preenchido!!');
   else if (inputPrice.value == '') alert('Campo "Preço" deve ser preenchido!!');
   else if (editando) salvar();
   else createItem();
-
 }
 
+dadosLocalStorage();
 showCards()
-
 buttonSubmit.addEventListener('click', validate);
