@@ -1,6 +1,6 @@
 <h1 align="center">Crud</h1>
 
-Sistema Crud (Create, Read, Update, Delete), desenvolvido por meio de estudos, utilizando HTML, CSS, JS e armazenando dados da tabela no LogcalStorage do navegador. 
+Sistema Crud (Create, Read, Update, Delete), desenvolvido por meio de estudos, utilizando HTML, CSS, JS e armazenando dados da tabela no LocalStorage do navegador. 
 <br>
 
 <p align="center">
